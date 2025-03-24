@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, NonNullableFormBuilder, ReactiveFormsModule, 
 import { isRequired, hasEmailError } from '../../utils/validators';
 import { AuthService } from '../../data-access/auth.service';
 import { Router, RouterLink } from '@angular/router';
+import { GoogleButtonComponent } from '../../ui/google-button/google-button.component';
 
 interface FormSignIn {
   email: FormControl<string | null>;
@@ -12,7 +13,7 @@ interface FormSignIn {
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, GoogleButtonComponent],
   templateUrl: './sign-in.component.html',
   styles: ``
 })
@@ -53,6 +54,15 @@ export default class SignInComponent {
       console.log({email, password}); //para ver que trae.
       await this._authService.signIn({email, password});
   
+      this._router.navigateByUrl('/tasks');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async submitWithGoogle() {
+    try {
+      await this._authService.signInWithGoogle();
       this._router.navigateByUrl('/tasks');
     } catch (error) {
       console.log(error);

@@ -58,8 +58,7 @@
             
               <hr class="my-4">
 
-              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-dark"
-                type="submit"><i class="fab fa-google me-2"></i>Inicia sesión con google</button>
+              <app-google-button (onClick)="submitWithGoogle()" />
             
               <p class="my-2">
                 Ya tienes una cuenta?
