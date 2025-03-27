@@ -1,1 +1,11 @@
-<p>task-list works!</p>
+<div class="px-4 py-4">
+    <a  
+        type="button" 
+        class="btn btn-dark mb-4"
+        routerLink="/tasks/new"
+        >
+            Nueva Tarea
+    </a>
+    <app-table [tasks]="[]"/>
+</div>  
+ 

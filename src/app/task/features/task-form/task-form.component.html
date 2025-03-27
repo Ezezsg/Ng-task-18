@@ -1,0 +1,64 @@
+<section  style="background-color: #00050e;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: #000c23;">
+            <div class="card-body p-5 text-center text-light">
+  
+              
+  
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" >Título</label>
+                  <input type="title" id="text" class="form-control form-control-lg" 
+                    formControlName="title"
+                  />
+                  
+                  <!-- @if(isRequired('email')) {
+                    <small class="text-danger">Este campo es requerido</small>
+                  }
+                  @if(hasEmailError()) {
+                    <small class="text-danger">El correo debe ser valido</small>
+                  }  -->
+  
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" >Anotaciones</label>
+                    <textarea type="textarea" id="text" class="form-control form-control-lg" 
+                      formControlName="textarea"
+                      rows="3"
+                    >
+                    </textarea>
+                    
+                    <!-- @if(isRequired('email')) {
+                      <small class="text-danger">Este campo es requerido</small>
+                    }
+                    @if(hasEmailError()) {
+                      <small class="text-danger">El correo debe ser valido</small>
+                    }  -->
+    
+                </div>
+  
+                <div class="form-check form-switch form-outline mb-4">
+                    <input formControlName="completed" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Completado</label>
+                </div>
+  
+                <button  
+                  [disabled]="loading()"
+                  class="btn btn-dark btn-lg btn-block" 
+                  type="submit"
+                  >
+                  {{loading() ? "Guardando..." : "Guardar"}}
+                  
+                </button>
+              
+                   
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
