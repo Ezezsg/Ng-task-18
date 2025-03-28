@@ -6,6 +6,11 @@
         >
             Nueva Tarea
     </a>
-    <app-table [tasks]="[]"/>
+    @if(tasksService.loading()){
+        <p class="text-light">Cargando...</p>
+    } @else {
+        <app-table [tasks]="tasksService.getTasks()"/>
+    }
+    
 </div>  
  

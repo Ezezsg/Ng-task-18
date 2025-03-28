@@ -3,16 +3,32 @@
       <tr >
         <th style="background-color: #000c23;" class="text-light" scope="col">ID</th>
         <th style="background-color: #000c23;" class="text-light" scope="col">Título</th>
+        <th style="background-color: #000c23;" class="text-light" scope="col">Observación</th>
         <th style="background-color: #000c23;" class="text-light" scope="col">Completado</th>
         <th style="background-color: #000c23;" class="text-light" scope="col"></th>
       </tr>
     </thead>
     <tbody>
+      @for (task of tasks(); track task.id) {
       <tr>
-        <th style="background-color: #000c23;" class="text-light" scope="row">1</th>
-        <td style="background-color: #000c23;" class="text-light">Mark</td>
-        <td style="background-color: #000c23;" class="text-light">Otto</td>
-        <td style="background-color: #000c23;" class="text-light">mdo</td>
+        <th style="background-color: #000c23;" class="text-light" scope="row">{{task.id}}</th>
+        <td style="background-color: #000c23;" class="text-light">{{task.title}}</td>
+        <td style="background-color: #000c23;" class="text-light">{{task.textarea}}</td>
+        <td style="background-color: #000c23;" class="text-light">{{task.completed ? "Completado" : "No Completado"}}</td>
+        <td style="background-color: #000c23;" class="text-light">
+          <button 
+          type="button" 
+          class="btn" 
+          [routerLink]="['/tasks/edit/' + task.id]"
+          >
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2" style="color: #FFFFFF"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+          </button>
+        </td>
       </tr>
+      } @empty {
+        <tr>
+          <th colspan="5" style="background-color: #000c23;" class="text-light text-center">No hay tareas</th>
+        </tr>
+      }
     </tbody>
 </table>
