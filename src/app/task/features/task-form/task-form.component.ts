@@ -10,7 +10,8 @@ import { get } from '@angular/fire/database';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './task-form.component.html',
-  styleUrl: './task-form.component.scss'
+  styleUrl: './task-form.component.scss',
+  providers: [TaskService],
 })
 export default class TaskFormComponent{
   private _formBuilder = inject(FormBuilder);
@@ -28,6 +29,7 @@ export default class TaskFormComponent{
   });
 
   constructor() {
+    
     effect(()=> {
       const id = this.idTask();
       if(id){
