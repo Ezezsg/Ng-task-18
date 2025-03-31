@@ -78,4 +78,9 @@ export class TaskService {
       userId: this._authState.currentUser?.uid,
     });
   }
+
+  delete(task: TaskCreate, id: string){
+    const docRef = doc(this._collection, id);
+    return deleteDoc(docRef);
+  }
 }
