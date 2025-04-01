@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/ng-task-18/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
